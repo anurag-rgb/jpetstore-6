@@ -16,12 +16,7 @@
       become: yes
       command: docker tag petstore:latest onusharma/petstore:latest
 
-    - name: Log in to Docker Hub
-      become: yes
-      community.docker.docker_login:
-        registry_url: https://index.docker.io/v1/
-        username: onusharma
-        password: dckr_pat_ckWCTO2Q9i6TllpeEVjWFl0MlOM/PAT
+   
 
     - name: Push image
       become: yes
