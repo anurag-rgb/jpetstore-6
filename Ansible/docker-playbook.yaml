@@ -8,20 +8,20 @@
 
     - name: Build Docker Image
       become: yes
-      command: docker build -t petstore2 .
+      command: docker build -t petstore .
       args:
         chdir: /var/lib/jenkins/workspace/petstore
 
     - name: Tag image
       become: yes
-      command: docker tag petstore2:latest onusharma/petstore2:latest
+      command: docker tag petstore:latest onusharma/petstore:latest
 
    
 
     - name: Push image
       become: yes
-      command: docker push onusharma/petstore2:latest
+      command: docker push onusharma/petstore:latest
 
     - name: Run container
       become: yes
-      command: docker run -d --name pet1 -p 8081:8080 onusharma/petstore2:latest
+      command: docker run -d --name pet1 -p 8081:8080 onusharma/petstore:latest
